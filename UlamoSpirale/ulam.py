@@ -23,45 +23,44 @@ def isPrime(n):
  
     return True
 
+
+def execPath(path):
+    global points, pointer, d
+    index = 0
+    if path[index] == 0:
+        index = 1
+    if(path[index] > 0): factor = 1 
+    else: factor = -1
+    for n in range(1, abs(path[index])+1):
+        pointer[index] = pointer[index] + factor
+        d += 1
+        if isPrime(d):
+            points[pointer[0]][pointer[1]] = True
+
 points = np.full((dim, dim), False)
-
 pointer = [int((dim-1)/2), int((dim-1)/2)] # rodo i centra
-
 d = 1
-i = 0
+i = 1
+
 while True:
     # https://math.stackexchange.com/questions/768198/how-to-create-alternating-series-with-happening-every-two-terms
     # Seka kur zenklas keistusi kas 2 narius ->
-    a = ((-1)**(i)+1)/2
-    b = a*(i)/2
+    a = (i + 1) % 2 # seka 010101010101...
+    b = a * i / 2 # seka 010203040506...
     y = int((-1)**((i**2+i+2)/2) * -b)
 
-    if(y > 0): factor = 1 
-    else: factor = -1
-    for n in range(1, abs(y)+1):
-        pointer[0] = pointer[0] + factor
-        d += 1
-        if isPrime(d):
-            points[pointer[0]][pointer[1]] = True
-
-    a = ((-1)**(i)-1)/-2
-    b = a*((i+1)/2)
+    a = i % 2
+    b = a * ((i + 1) / 2)
     x = int((-1)**((i**2+i+2)/2) * b)
 
-    if(x > 0): factor = 1 
-    else: factor = -1
-    for n in range(1, abs(x)+1):
-        pointer[1] = pointer[1] + factor
-        d += 1
-        if isPrime(d):
-            points[pointer[0]][pointer[1]] = True
+    execPath((y,x))
     
     i += 1
     if d >= dim**2:
         break
 
 
-points = ~points
+points = ~points # False pakeicia i True
 points = points.astype(np.uint8) * 255
 image = Image.fromarray(points, mode="L")
 

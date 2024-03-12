@@ -1,0 +1,163 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body > h1 {
+    height: 50px;
+    margin: 10px 0 0 0;
+    font-family: "Sixtyfour", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-variation-settings:
+    "BLED" 0,
+    "SCAN" -24;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url("Teleloto.jpg");
+    background-size: 600px 600px;
+
+}
+
+.content {
+    height: calc(100vh - 60px);
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 1fr 1fr; 
+    justify-items: center; 
+    align-items: center; 
+}
+
+.content > div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#board {
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+#board {
+    width: 80%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#board > span {
+    display: flex;
+    justify-content: center;
+    gap: 3px;
+    margin-bottom: 3px;
+    width: 100%;
+    max-width: calc(70px * 5);
+}
+
+#board > span > span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+}
+
+#board > span > span[data-id] {
+    aspect-ratio: 1;
+    width: 20%;
+    max-width: 70px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.legend > span {
+    width: 100%;
+    max-width: calc(70px * 5);
+    height: 35px;
+    margin-right: 3px;
+    font-weight: 700;
+}
+
+.balls {
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 6px;
+    margin: 0 10%;
+}
+
+.balls > span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    padding: 12px;
+    aspect-ratio: 1;
+    height: clamp(15px, 5vw, 38px);
+    width: auto;
+}
+
+#rolls p {
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.M {
+    background-color: rgb(50, 98, 255);
+    color: white;
+}
+
+.J {
+    background-color: black;
+    color: white;
+}
+
+.G {
+    background-color: rgb(255, 246, 84);
+}
+
+.Ž {
+    background-color: rgb(134, 255, 58);
+    color: white;
+}
+
+.R {
+    background-color: rgb(255, 49, 49);
+    color: white;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.input {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+.results {
+    width: 300px;
+    height: 300px;
+}

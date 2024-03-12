@@ -1,0 +1,8 @@
+Monte Karlo metodu apskaičiuokite „Teleloto“ žaidimo apytiksles tikimybes, kad išriedėjus 38 kamuoliukui bus:
+
+a) užbraukti 4 kampai
+b) užbraukta eilutė
+c) užbrauktos įstrižainės
+
+Taip pat įvertinkite apytikslę tikimybę laimėti aukso puodą, t. y.
+kad išriedėjus 47 kamuoliukui bus užbraukta visa 5×5 lentelė.

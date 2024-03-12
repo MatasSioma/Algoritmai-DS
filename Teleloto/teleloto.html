@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teleloto</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sixtyfour:SCAN@-24&display=swap&family=Poppins:wght@400;700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <h1>Teleloto</h1>
+    <div class="content">
+        <div id="board">
+            <span class="legend">
+                <span>M</span>
+                <span>J</span>
+                <span>R</span>
+                <span>G</span>
+                <span>Ž</span>
+            </span>
+        </div>
+        <div id="rolls">
+            <p>Išridenti kamuoliukai</p>
+            <div class="balls"></div>
+        </div>
+        <div id="input">
+            <input type="number" class="form-control" placeholder="Bandymų kiekis" step="100">
+            <label for="stop">Stabdyti bandymus kai laimima</label>
+            <input type="checkbox" class="form-control" name="stop">
+            <button class="btn btn-primary">Vygdyti</button>
+        </div>
+        <div id="results">
+            <span>
+            </span>
+            <span>
+            </span>
+            <span>
+            </span>
+    </div>
+    </div>
+    <script src="logic.js"></script>
+</body>
+</html>

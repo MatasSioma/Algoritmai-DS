@@ -145,19 +145,60 @@ body {
     color: white;
 }
 
-.stats {
+#control {
+    width: 50%;
     display: flex;
-    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+#control > div {
+    display: flex;
+    justify-content: flex-start;
     align-items: center;
+    flex: 0;
+    width: 100%;
+    margin-bottom: 5px;
 }
 
-.input {
+#control input[type="checkbox"] {
+    width: 20px;
+    height: 30px;
+    margin-right: 5px;
+}
+
+.refresh {
     display: flex;
+    align-items: center;
     justify-content: center;
-    align-self: center;
+    border-radius: 50%;
+    aspect-ratio: 1;
+    padding: 5px;
+    border: none;
 }
 
-.results {
-    width: 300px;
-    height: 300px;
+.refresh:focus {
+    outline: none;
+}
+
+#control p {
+    margin-bottom: 0;
+    margin-left: 10px;
+}
+
+#results {
+    width: 70%;
+    align-items: flex-start;
+}
+
+#results > div :nth-child(2){
+    font-weight: 700;
+}
+
+#results .title {
+    display: flex;
+}
+
+#results p {
+    margin-right: 5px;
+    margin-bottom: 5px;
 }

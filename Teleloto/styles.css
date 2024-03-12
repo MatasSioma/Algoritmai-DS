@@ -26,18 +26,23 @@ body {
     justify-content: center;
     align-items: center;
     background-image: url("Teleloto.jpg");
-    background-size: 600px 600px;
-
+    background-size: clamp(250px, 50vw, 550px) clamp(250px, 50vw, 550px);
 }
 
 .content {
     height: calc(100vh - 60px);
     width: 100vw;
     display: grid;
-    grid-template-columns: 1fr 1fr; 
+    grid-template-columns: repeat(2, minmax(300px, 1fr));
     grid-template-rows: 1fr 1fr; 
     justify-items: center; 
     align-items: center; 
+}
+
+@media (max-width: 600px) {
+    .content {
+        grid-template-columns: 1fr;
+    }
 }
 
 .content > div {
@@ -78,12 +83,20 @@ body {
     gap: 3px;
 }
 
-#board > span > span[data-id] {
+span[data-id] {
     aspect-ratio: 1;
     width: 20%;
     max-width: 70px;
     background-color: white;
     border-radius: 10px;
+}
+
+span[data-id].matches {
+    background-color: #ff84ad;
+}
+
+span[data-id].jackpot {
+    background-color: #92ff84;
 }
 
 .legend > span {
@@ -158,12 +171,6 @@ body {
     flex: 0;
     width: 100%;
     margin-bottom: 5px;
-}
-
-#control input[type="checkbox"] {
-    width: 20px;
-    height: 30px;
-    margin-right: 5px;
 }
 
 .refresh {

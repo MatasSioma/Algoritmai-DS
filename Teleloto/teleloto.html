@@ -30,9 +30,11 @@
         </div>
         <div id="control">
             <div><button onclick="ticket=generateTicket()" class="btn-light refresh"><span class="material-symbols-outlined">refresh</span></button><p>Generuoti naują bilietą</p></div>
-            <input type="number" class="form-control" placeholder="Bandymų kiekis" value="1" min="0" step="100">
-            <div><p>Papildomai uždelsti kiekvieną bandymą </p><button onclick="timeToSleep=0" class="btn btn-light">0ms</button> <button onclick="timeToSleep=1" class="btn btn-light">1ms</button> <button onclick="timeToSleep=50" class="btn btn-light">50ms</button> <button onclick="timeToSleep=100" class="btn btn-light">100ms</button></div>
-            <button onclick="start()" class="btn btn-light">Vygdyti bandymus</button>
+            <input type="number" class="form-control" placeholder="Bandymų kiekis" value="1" min="0" step="250">
+            <p>Papildomai uždelsti kiekvieną bandymą:</p>
+            <div class="timeToSleep"><button onclick="setTimeToSleep(0.0000000000001);" class="btn btn-light selected">0ms</button> <button onclick="setTimeToSleep(1);" class="btn btn-light">1ms</button> <button onclick="setTimeToSleep(50);" class="btn btn-light">50ms</button> <button onclick="setTimeToSleep(100);" class="btn btn-light">100ms</button></div>
+            <div class="action"><button onclick="start()" class="btn btn-success"><span class="material-symbols-outlined">play_arrow</span></button><button onclick="interupt = true;" class="btn btn-danger stop"><span class="material-symbols-outlined">stop</span></button></div>
+            
         </div>
         <div id="results">
             <div class="title"><p>Laimėjimo šansai paskaičiuoti po</p> <p class="try-amount">0</p><p>bandymų</p></div>

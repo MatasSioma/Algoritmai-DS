@@ -95,6 +95,10 @@ span[data-id].matches {
     background-color: #ff84ad;
 }
 
+span[data-id].extra {
+    background-color: #b1fff3;
+}
+
 span[data-id].jackpot {
     background-color: #92ff84;
 }
@@ -159,7 +163,7 @@ span[data-id].jackpot {
 }
 
 #control {
-    width: 50%;
+    width: 70%;
     display: flex;
     align-items: flex-start;
 }
@@ -171,6 +175,7 @@ span[data-id].jackpot {
     flex: 0;
     width: 100%;
     margin-bottom: 5px;
+    gap: 2%;
 }
 
 .refresh {
@@ -189,7 +194,23 @@ span[data-id].jackpot {
 
 #control p {
     margin-bottom: 0;
-    margin-left: 10px;
+}
+
+.action > button {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.timeToSleep .selected {
+    background-color: rgb(125, 201, 255);
+    border-color: rgb(125, 201, 255);
+}
+
+.timeToSleep .selected:hover {
+    background-color: rgb(152, 212, 255);
+    border-color: rgb(152, 212, 255);
 }
 
 #results {

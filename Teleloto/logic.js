@@ -68,6 +68,7 @@ function printTicket(ticket) {
 
 function initiateGrid() {
     let grid = [];
+    let line;
     for (let i = 0; i < 5; i++) {
         line = document.createElement("span");
         for (let j = 0; j < 5; j++) {
@@ -93,17 +94,36 @@ async function start() {
         alert("įveskite bandymų kiekį.")
         return;
     }
-    const resultTab = document.querySelector("#results"); 
+    interupt = false;
+    const resultTab = document.querySelector("#results");
+    const tryAmount = resultTab.querySelector(".try-amount");
+    const cornerResult = resultTab.querySelector(".corners");
+    const lineResult = resultTab.querySelector(".line");
+    const crossResult = resultTab.querySelector(".cross");
+    const jackResult = resultTab.querySelector(".gold");
+    jackResult.innerHTML = "0%";
+
     for(let i = 0; i < num; i++) {
-        roll = generateRoll(48);
+        roll = generateRoll(47);
         if (checkWin()) { // jackpot
             for(let item of grid) item.classList.add("jackpot");
             inputField.value = num - i+1;
-            break;
+            jackResult.innerHTML = jack / bandymuSk * 100 + "%";
+            return;
         }
+        
         bandymuSk += 1;
-        resultTab.querySelector(".try-amount").innerHTML = bandymuSk;
+        tryAmount.innerHTML = bandymuSk;
+        cornerResult.innerHTML = corner / bandymuSk * 100 + "%";
+        lineResult.innerHTML = lines / bandymuSk * 100 + "%";
+        crossResult.innerHTML = cross / bandymuSk * 100 + "%";
         inputField.value -= 1;
+
+        if(interupt) {
+            interupt = false;
+            inputField.value = num - i+1;
+            return;
+        }
         if (timeToSleep !== 0) {
             await sleep(timeToSleep);
         }
@@ -117,41 +137,39 @@ function clearGridStyle() {
     }
 }
 
-function checkWin() {
-    let matching = new Array(25).fill(false);
-    const rollTrysAstuoni = roll.slice(0,38);
-
-    let answer = {
-        "corner": false,
-        "line": false,
-        "cross": true
+function setTimeToSleep(time) {
+    for( let btn of document.querySelectorAll(".timeToSleep button")) {
+        btn.classList.remove("selected");
     }
+    timeToSleep = time;
+    document.querySelector(`.timeToSleep button[onclick="setTimeToSleep(${time});"]`).classList.add("selected");
+}
+
+function mathingMatrix(rollCount) {
+    let matching = new Array(25).fill(false);
+    const slicedRoll = roll.slice(0, rollCount);
+
 
     for (let i = 0; i < 25; i++){
-        if(rollTrysAstuoni.includes(ticket[i])) {
+        if(slicedRoll.includes(ticket[i])) {
             matching[i] = true;
-            grid[i].classList.add("matches");
+            if (rollCount <= 38) grid[i].classList.add("matches");
         }  
     } 
+
+    return matching;
+}
+
+function checkWin() {
+    let matching = mathingMatrix(38);
 
     if(matching[0] && matching[4] && matching[20] && matching[24]) {
         corner += 1;
     }
 
-    let lineCount = 0;
     for(let i = 0; i < 5; i++) {
         let matches = matching[i] && matching[i+5] && matching[i+10] && matching[i+15] && matching[i+20];
-        if(matches) lineCount += 1;
-    }
-
-    if (lineCount > 0) {
-        lines += 1;
-        if(lineCount === 5) {
-            corner += 1;
-            lines += 1;
-            cross += 1;
-            return true; // jackpot
-        }
+        if(matches) lines += 1; break;
     }
 
     cross += 1;
@@ -161,11 +179,28 @@ function checkWin() {
             break;
         }
     }
+
+    matching = mathingMatrix(47);
+    for (let i = 0; i < 25; i++) {
+        if(!matching[i]) {
+            return false;
+        }
+    }
+
+    // jackpot
+    corner += 1;
+    lines += 1;
+    cross += 1;
+    jack += 1;
+
+    return true;
+
 }
 
 let roll;
 const grid = initiateGrid();
 let ticket = generateTicket();
-let timeToSleep = 0;
+let timeToSleep = 0.0000000000001;
+let interupt = false;
 let bandymuSk = 0, corner = 0, lines = 0, cross = 0, jack = 0;
 start();

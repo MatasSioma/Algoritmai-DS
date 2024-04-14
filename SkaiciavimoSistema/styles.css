@@ -12,6 +12,9 @@ body {
     height: 7rem;
 }
 
+h1 {
+    margin-bottom: 3px;
+}
 
 .arrow {
     height: 100%;

@@ -20,6 +20,6 @@ body {
 }
 
 img {
-    height: 70%;
+    height: clamp(40px, 8vw, 80px);
     width: auto;
 }

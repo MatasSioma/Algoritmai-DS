@@ -34,7 +34,7 @@ function baseToBase(inBase, inNum, outBase) {
     for (let char of inNum) {
         let index = baseNDigits.indexOf(char);
         if(index == -1) {
-            alert("Skaičius ir jo skaičiavimo sistema nesutampa. Arba bandote įvesti ne sveikąjį sk.");
+            // alert("Skaičius ir jo skaičiavimo sistema nesutampa. Arba bandote įvesti ne sveikąjį sk.");
             throw "Skaičius ir jo skaičiavimo sistema nesutampa. Arba bandote įvesti ne sveikąjį sk.";
         }
         inArray.push(index);
@@ -58,22 +58,28 @@ function baseToBase(inBase, inNum, outBase) {
     if (negative) outNum = '-' + outNum;
     return outNum;
 }
+
 const baseFields = document.querySelectorAll('select');
 const numFields = document.querySelectorAll('input[type="text"]');
 
-baseFields.forEach((field, i) => {
-    let opp = 1;
-    if(i == 1) {opp = 0;}
+// baseFields.forEach((field, i) => {
+//     let opp = 1;
+//     if(i == 1) {opp = 0;}
 
-    field.addEventListener("change", (event) => {
-        numFields[opp].value = baseToBase(event.target.value, numFields[i].value, baseFields[opp].value);
-    })
-})
+//     field.addEventListener("change", (event) => {
+//         numFields[opp].value = baseToBase(event.target.value, numFields[i].value, baseFields[opp].value);
+//     })
+// })
 
 numFields.forEach((field, i) => {
     let opp = 1;
     if(i == 1) {opp = 0;}
-    field.addEventListener("change", (event) => {
-        numFields[opp].value = baseToBase(baseFields[i].value, event.target.value, baseFields[opp].value);
+    field.addEventListener("keypress", (event) => {
+        try {
+            numFields[i].classList.remove("wrongInput");
+            numFields[opp].value = baseToBase(baseFields[i].value, event.target.value, baseFields[opp].value);
+        } catch {
+            if (numFields[i].value !== "") numFields[i].classList.add("wrongInput");
+        }
     })
 })

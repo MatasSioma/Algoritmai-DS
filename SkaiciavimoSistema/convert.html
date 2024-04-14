@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <title>Skaičiavimo sistemos</title>
+</head>
+<body>
+    <div id="body">
+        <h1>Skaičiavimo sistemos konvertuotojas</h1>
+        <div class="content">
+            <div class="one">
+                <select name="oneBase" class="custom-select custom-select-lg mb-3">
+                    <option value="2">2, Dvejetainė (Binary)</option>
+                    <option value="8">8, Aštuonainė (Octal)</option>
+                    <option value="10" selected>10, Dešimtainė (Decimal)</option>
+                    <option value="16">16, Šešioliktainė (Hexadecimal)</option>
+                    <option value="256">256, Dvidešimt aštuonainė (Base-256)</option>
+                    <option value="360">360, Tris šimtai šešiasdešimtainė (Sexagesimal)</option>
+                    <option value="3">3, Tretinė (Ternary)</option>
+                    <option value="4">4, Ketvirtinė (Quaternary)</option>
+                    <option value="5">5, Penktinė (Quinary)</option>
+                    <option value="6">6, Šeštainė (Senary)</option>
+                    <option value="7">7, Septintinė (Septenary)</option>
+                    <option value="9">9, Devintinė (Nonary)</option>
+                    <option value="11">11, Vienuoliktainė (Undecimal)</option>
+                    <option value="12">12, Dvyliktainė (Duodecimal)</option>
+                    <option value="13">13, Tryliktainė (Tridecimal)</option>
+                    <option value="14">14, Keturioliktainė (Quattuordecimal)</option>
+                    <option value="15">15, Penkioliktinė (Quindecimal)</option>
+                    <option value="17">17, Septynioliktinė (Heptadecimal)</option>
+                    <option value="18">18, Aštuonioliktinė (Octodecimal)</option>
+                    <option value="19">19, Devynioliktinė (Nonadecimal)</option>
+                    <option value="20">20, Dvidešimtainė (Vigesimal)</option>
+                    <option value="21">21, Dvidešimt pirminė (Base-21)</option>
+                    <option value="22">22, Dvidešimt antrinė (Base-22)</option>
+                    <option value="23">23, Dvidešimt tretinė (Base-23)</option>
+                    <option value="24">24, Dvidešimt ketvirtinė (Base-24)</option>
+                    <option value="25">25, Dvidešimt penktinė (Base-25)</option>
+                    <option value="26">26, Dvidešimt šeštainė (Base-26)</option>
+                    <option value="27">27, Dvidešimt septintinė (Base-27)</option>
+                    <option value="28">28, Dvidešimt aštuntainė (Base-28)</option>
+                    <option value="29">29, Dvidešimt devintainė (Base-29)</option>
+                    <option value="30">30, Tryliktainė (Trigesimal)</option>
+                    <option value="31">31, Trisdešimt pirminė (Base-31)</option>
+                    <option value="32">32, Trisdešimt antrinė (Base-32)</option>
+                    <option value="33">33, Trisdešimt tretinė (Base-33)</option>
+                    <option value="34">34, Trisdešimt ketvirtinė (Base-34)</option>
+                    <option value="35">35, Trisdešimt penktinė (Base-35)</option>
+                    <option value="36">36, Trisdešimt šeštainė (Base-36)</option>
+                    <option value="37">37, Trisdešimt septintinė (Base-37)</option>
+                    <option value="38">38, Trisdešimt aštuntainė (Base-38)</option>
+                    <option value="39">39, Trisdešimt devintinė (Base-39)</option>
+                </select>
+                <input type="text" class="form-control" name="oneNum" placeholder="Įveskite skaičių">
+            </div>
+            <span class="arrow"><img src="long-arrow.svg" alt="arrow"></span>
+            <div class="two">
+                <select name="twoBase" class="custom-select custom-select-lg mb-3">
+                    <option value="2">2, Dvejetainė (Binary)</option>
+                    <option value="8">8, Aštuonainė (Octal)</option>
+                    <option value="10">10, Dešimtainė (Decimal)</option>
+                    <option value="16" selected>16, Šešioliktainė (Hexadecimal)</option>
+                    <option value="256">256, Dvidešimt aštuonainė (Base-256)</option>
+                    <option value="360">360, Tris šimtai šešiasdešimtainė (Sexagesimal)</option>
+                    <option value="3">3, Tretinė (Ternary)</option>
+                    <option value="4">4, Ketvirtinė (Quaternary)</option>
+                    <option value="5">5, Penktinė (Quinary)</option>
+                    <option value="6">6, Šeštainė (Senary)</option>
+                    <option value="7">7, Septintinė (Septenary)</option>
+                    <option value="9">9, Devintinė (Nonary)</option>
+                    <option value="11">11, Vienuoliktainė (Undecimal)</option>
+                    <option value="12">12, Dvyliktainė (Duodecimal)</option>
+                    <option value="13">13, Tryliktainė (Tridecimal)</option>
+                    <option value="14">14, Keturioliktainė (Quattuordecimal)</option>
+                    <option value="15">15, Penkioliktinė (Quindecimal)</option>
+                    <option value="17">17, Septynioliktinė (Heptadecimal)</option>
+                    <option value="18">18, Aštuonioliktinė (Octodecimal)</option>
+                    <option value="19">19, Devynioliktinė (Nonadecimal)</option>
+                    <option value="20">20, Dvidešimtainė (Vigesimal)</option>
+                    <option value="21">21, Dvidešimt pirminė (Base-21)</option>
+                    <option value="22">22, Dvidešimt antrinė (Base-22)</option>
+                    <option value="23">23, Dvidešimt tretinė (Base-23)</option>
+                    <option value="24">24, Dvidešimt ketvirtinė (Base-24)</option>
+                    <option value="25">25, Dvidešimt penktinė (Base-25)</option>
+                    <option value="26">26, Dvidešimt šeštainė (Base-26)</option>
+                    <option value="27">27, Dvidešimt septintinė (Base-27)</option>
+                    <option value="28">28, Dvidešimt aštuntainė (Base-28)</option>
+                    <option value="29">29, Dvidešimt devintainė (Base-29)</option>
+                    <option value="30">30, Tryliktainė (Trigesimal)</option>
+                    <option value="31">31, Trisdešimt pirminė (Base-31)</option>
+                    <option value="32">32, Trisdešimt antrinė (Base-32)</option>
+                    <option value="33">33, Trisdešimt tretinė (Base-33)</option>
+                    <option value="34">34, Trisdešimt ketvirtinė (Base-34)</option>
+                    <option value="35">35, Trisdešimt penktinė (Base-35)</option>
+                    <option value="36">36, Trisdešimt šeštainė (Base-36)</option>
+                    <option value="37">37, Trisdešimt septintinė (Base-37)</option>
+                    <option value="38">38, Trisdešimt aštuntainė (Base-38)</option>
+                    <option value="39">39, Trisdešimt devintinė (Base-39)</option>
+                </select>
+                <input type="text" class="form-control" name="twoNum" placeholder="Įveskite skaičių">
+            </div>
+                        
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>

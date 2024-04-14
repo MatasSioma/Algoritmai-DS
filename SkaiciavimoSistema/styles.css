@@ -1,0 +1,25 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4%;
+    height: 7rem;
+}
+
+
+.arrow {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+img {
+    height: 70%;
+    width: auto;
+}

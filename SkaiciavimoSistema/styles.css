@@ -22,11 +22,24 @@ h1 {
     align-items: center;
 }
 
+/* .arrow:hover path {
+    fill: green;
+}
+
+.arrow:hover {
+    cursor: pointer;
+}
+*/
+
+.wrongInput:focus {
+    background-color: rgba(255, 0, 0, 0.3);
+}
+
 .wrongInput {
     background-color: rgba(255, 0, 0, 0.3);
 }
 
-img {
+svg {
     height: clamp(40px, 8vw, 80px);
     width: auto;
 }

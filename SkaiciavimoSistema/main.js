@@ -27,6 +27,11 @@ function baseToBase(inBase, inNum, outBase) {
     if(inNum == "") return "";
     if(inNum == "0") return 0;
 
+    while(true) {
+        if(inNum.startsWith("0")) inNum = inNum.slice(1);
+        else break;
+    }
+
     const baseNDigits = base36Digits.slice(0, inBase);
 
     let inArray = [];
@@ -74,12 +79,23 @@ const numFields = document.querySelectorAll('input[type="text"]');
 numFields.forEach((field, i) => {
     let opp = 1;
     if(i == 1) {opp = 0;}
-    field.addEventListener("keypress", (event) => {
+    
+    field.addEventListener("change", (event) => {
         try {
             numFields[i].classList.remove("wrongInput");
             numFields[opp].value = baseToBase(baseFields[i].value, event.target.value, baseFields[opp].value);
         } catch {
             if (numFields[i].value !== "") numFields[i].classList.add("wrongInput");
+        }
+    })
+    field.addEventListener("keypress", (event) => {
+        if (event.keyCode === 13) {
+            try {
+                numFields[i].classList.remove("wrongInput");
+                numFields[opp].value = baseToBase(baseFields[i].value, event.target.value, baseFields[opp].value);
+            } catch {
+                if (numFields[i].value !== "") numFields[i].classList.add("wrongInput");
+            }
         }
     })
 })
